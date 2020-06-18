@@ -41,4 +41,17 @@ export function showFavourties(bool){
     }
 }
 
- 
+export function handleMovieSearch(movie){
+    const url = `http://www.omdbapi.com/?apikey=d95e84e4&t=${movie}`;
+    //async action
+    return function(dispatch){
+        fetch(url)
+        .then(response=>response.json())
+        .then(movie=>{
+            console.log(movie);
+
+            //dipsatch an action ===>  dispatch({type:'ADD_SEARCH_RESULT',movie})
+        })
+    }
+    
+}
